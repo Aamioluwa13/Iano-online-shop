@@ -19,7 +19,7 @@ const products = [
     name: 'Ankara',
     price: 14.99,
     description: 'Finish your outfit with this cap.',
-    image: 'https://images/c1.jpg'
+    image: '/images/c1.jpg'
   },
   {
     id: 'p4',

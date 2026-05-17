@@ -1,3 +1,5 @@
+'use client'
+
 import '../styles/globals.css'
 import { CartProvider } from '../components/CartContext'
 

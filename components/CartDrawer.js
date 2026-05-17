@@ -1,58 +1,5 @@
-import React from 'react'
-import { useCart } from './CartContext'
+'use client'
 
-export default function CartDrawer() {
-  const { items, open, setOpen, removeItem, updateQty, total, clear } = useCart()
-
-  function openWhatsApp() {
-    // build message
-    const lines = ['🛍️ New Order from Website️', '-------------------------']
-    items.forEach((it) => {
-      lines.push(`• ${it.qty} ${it.name} - $${(it.price * it.qty).toFixed(2)}`)
-    })
-    lines.push('-------------------------')
-    lines.push(`💰 Total: $${total.toFixed(2)}`)
-    const msg = encodeURIComponent(lines.join('\n'))
-    const url = `https://wa.me/message/EUDNORFDAKVJE1?text=${msg}`
-    window.open(url, '_blank')
-  }
-
-  return (
-    <div className={`fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 transform ${open ? 'translate-x-0' : 'translate-x-full'} transition-transform`}>
-      <div className="p-4 flex items-center justify-between border-b">
-        <h3 className="text-lg font-bold">Cart</h3>
-        <div className="space-x-2">
-          <button onClick={() => setOpen(false)} className="text-gray-600">Close</button>
-        </div>
-      </div>
-      <div className="p-4 overflow-y-auto h-[80%]">
-        {items.length === 0 && <div className="text-gray-600">Your cart is empty.</div>}
-        {items.map((it) => (
-          <div key={it.id} className="flex items-center justify-between py-2 border-b">
-            <div>
-              <div className="font-medium">{it.name}</div>
-              <div className="text-sm text-gray-600">${it.price.toFixed(2)}</div>
-            </div>
-            <div className="flex items-center gap-2">
-              <input type="number" min="1" value={it.qty} onChange={(e) => updateQty(it.id, Number(e.target.value))} className="w-16 border rounded px-2 py-1" />
-              <button onClick={() => removeItem(it.id)} className="text-red-600">Remove</button>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="p-4 border-t">
-        <div className="flex items-center justify-between mb-4">
-          <div className="font-semibold">Total</div>
-          <div className="font-bold">${total.toFixed(2)}</div>
-        </div>
-        <div className="space-y-2">
-          <button onClick={openWhatsApp} className="w-full bg-green-600 text-white py-3 rounded text-center text-lg">Order via WhatsApp</button>
-          <button onClick={clear} className="w-full border border-gray-300 py-2 rounded">Clear Cart</button>
-        </div>
-      </div>
-    </div>
-  )
-}
 import React from 'react'
 import { useCart } from './CartContext'
 

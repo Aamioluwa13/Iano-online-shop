@@ -62,7 +62,7 @@ const products = [
     price: 79.99,
     description: 'Cozy hoodie for chilly days',
     image: '/images/a7.png'
-  }
+  },
   {
     id: 'p10',
     name: 'Premium Polo Tracksuit [Blue]',

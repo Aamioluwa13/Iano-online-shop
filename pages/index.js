@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard'
 import products from '../data/products'
 import brand from '../data/brand'
 import CartDrawer from '../components/CartDrawer'
+import Footer from '../components/Footer'
 
 export default function Home() {
   const [selected, setSelected] = useState(null)
@@ -31,6 +32,8 @@ export default function Home() {
       <ProductModal product={selected} onClose={() => setSelected(null)} />
 
       <CartDrawer />
+      
+      <Footer />
     </div>
   )
 }

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { useCart } from './CartContext'
+import { formatPrice, formatTotal } from '../lib/priceFormatter'
 
 export default function CartDrawer() {
   const { items, open, setOpen, updateQty, removeItem, total, clear } = useCart()
@@ -13,11 +14,11 @@ export default function CartDrawer() {
     lines.push('🛍️ New Order from Website️')
     lines.push('-------------------------')
     items.forEach((it) => {
-      const line = `• ${it.qty} ${it.name} - $${(it.price * it.qty).toFixed(2)}`
+      const line = `• ${it.qty}x ${it.name} - ${formatPrice(it.price * it.qty)}`
       lines.push(line)
     })
     lines.push('-------------------------')
-    lines.push(`💰 Total: $${total.toFixed(2)}`)
+    lines.push(`💰 Total: ${formatTotal(total)}`)
 
     const msg = lines.join('\n')
     const encoded = encodeURIComponent(msg)
@@ -40,11 +41,11 @@ export default function CartDrawer() {
             <div key={it.id} className="flex items-center justify-between bg-gray-50 p-2 rounded">
               <div>
                 <div className="font-medium">{it.name}</div>
-                <div className="text-sm text-gray-600">${it.price.toFixed(2)}</div>
+                <div className="text-sm text-gray-600">{formatPrice(it.price)}</div>
               </div>
               <div className="flex items-center gap-2">
                 <input className="w-12 p-1 border rounded" type="number" min={1} value={it.qty} onChange={(e) => updateQty(it.id, Number(e.target.value) || 1)} />
-                <div className="font-medium">${(it.price * it.qty).toFixed(2)}</div>
+                <div className="font-medium text-sm">{formatPrice(it.price * it.qty)}</div>
                 <button className="text-red-500" onClick={() => removeItem(it.id)}>Remove</button>
               </div>
             </div>
@@ -54,7 +55,7 @@ export default function CartDrawer() {
         <div className="mt-4 border-t pt-4">
           <div className="flex items-center justify-between font-semibold">
             <div>Total</div>
-            <div>${total.toFixed(2)}</div>
+            <div>{formatTotal(total)}</div>
           </div>
 
           <div className="mt-4 space-y-2">

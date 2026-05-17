@@ -6,6 +6,7 @@ import products from '../data/products'
 import brand from '../data/brand'
 import CartDrawer from '../components/CartDrawer'
 import Footer from '../components/Footer'
+import { formatPrice } from '../lib/priceFormatter'
 
 export default function Home() {
   const [selected, setSelected] = useState(null)
@@ -50,7 +51,7 @@ function ProductModal({ product, onClose }) {
         </div>
         <p className="mt-2 text-gray-700">{product.description}</p>
         <div className="mt-4 flex items-center justify-between">
-          <div className="text-2xl font-semibold">${product.price.toFixed(2)}</div>
+          <div className="text-2xl font-semibold">{formatPrice(product.price)}</div>
           <AddToCartButton product={product} onAdded={onClose} />
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { formatPrice } from '../lib/priceFormatter'
 
 export default function ProductCard({ product, onOpen }) {
   return (
@@ -10,7 +11,7 @@ export default function ProductCard({ product, onOpen }) {
       </div>
       <div className="p-3">
         <h3 className="font-semibold text-sm line-clamp-2">{product.name}</h3>
-        <div className="text-sm text-gray-600 mt-1">${product.price.toFixed(2)}</div>
+        <div className="text-sm text-gray-600 mt-1">{formatPrice(product.price)}</div>
         <button onClick={onOpen} className="mt-2 w-full bg-black text-white text-xs py-2 rounded">Quick View</button>
       </div>
     </div>

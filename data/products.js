@@ -19,7 +19,7 @@ const products = [
     name: 'Premium Iano Hoodie [Brown]',
     price: 29.99,
     description: 'Cozy hoodie for chilly days',
-    image: '/images/a6.png'
+    image: '/images/a3.png'
   },
   {
     id: 'p4',
@@ -47,7 +47,7 @@ const products = [
     name: 'Premium Iano Hoodie [Gold]',
     price: 29.99,
     description: 'Cozy hoodie for chilly days',
-    image: '/images/a9.png'
+    image: '/images/a6.png'
   },
    {
     id: 'p8',

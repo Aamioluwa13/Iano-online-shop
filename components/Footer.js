@@ -10,7 +10,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <h4 className="font-bold mb-2">About</h4>
-            <p className="text-sm text-gray-300">Quality products, exceptional service.</p>
+            <p className="text-sm text-gray-300">Where Quality meets Satisfaction.</p>
           </div>
           
           {/* Quick Links */}
@@ -27,7 +27,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-2">Contact</h4>
             <p className="text-sm text-gray-300">Email: info@iano.com</p>
-            <p className="text-sm text-gray-300">Phone: +1 (555) 123-4567</p>
+            <p className="text-sm text-gray-300">Phone: +234 91 311 53240</p>
           </div>
         </div>
         

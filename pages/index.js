@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import ProductCard from '../components/ProductCard'
 import products from '../data/products'
+import brand from '../data/brand'
 import CartDrawer from '../components/CartDrawer'
 
 export default function Home() {
@@ -11,8 +12,11 @@ export default function Home() {
   return (
     <div className="min-h-screen brand-bg p-4">
       <header className="max-w-3xl mx-auto flex items-center justify-between py-4">
-        <div className="text-2xl font-bold">Brand Name</div>
-        <div className="text-sm uppercase text-gray-700">Free shipping over $50</div>
+        <div className="flex items-center gap-3">
+          <img src={brand.logo} alt={brand.name} className="h-12 max-w-[150px] object-contain" />
+          <div className="text-2xl font-bold">{brand.name}</div>
+        </div>
+        <div className="text-sm uppercase text-gray-700"><i>{brand.tagline}</i></div>
       </header>
 
       <main className="max-w-3xl mx-auto">
